@@ -6,8 +6,17 @@ $("#search-form").on("submit", function(event) {
     var userinput = $("#search-input").val();
     $("#today").empty()
     $("#forecast").empty()
-
     getWeather(userinput);
+
+    var newButton = $("<button>")
+    newButton.addClass("btn")
+    newButton.text(userinput)
+    newButton.on("click", function() {
+        $("#today").empty()
+        $("#forecast").empty()
+        getWeather($(this).text());
+    }) 
+    $("#history").append(newButton);    
 });
 
 // fetches coordinates from user input
