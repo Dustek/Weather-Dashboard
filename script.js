@@ -1,13 +1,13 @@
 var lat
 var lon
-
+// On user input, presents weather data for that city
 $("#search-form").on("submit", function(event) {
     event.preventDefault();
     var userinput = $("#search-input").val();
     $("#today").empty()
     $("#forecast").empty()
     getWeather(userinput);
-
+// Creates interactive buttons from user input history
     var newButton = $("<button>")
     newButton.addClass("btn")
     newButton.text(userinput)
@@ -17,7 +17,29 @@ $("#search-form").on("submit", function(event) {
         getWeather($(this).text());
     }) 
     $("#history").append(newButton);    
+
+    saveSearchHistory();
 });
+
+// Saves button history to local storage
+function saveSearchHistory() {
+    var searchHistory = $("#history").html();
+    localStorage.setItem("searchHistory", searchHistory);
+}
+
+// Loads button history on page load
+function loadSearchHistory() {
+    var searchHistory = localStorage.getItem("searchHistory");
+    if (searchHistory) {
+        $("#history").html(searchHistory);
+    }
+}
+loadSearchHistory();
+
+$("#clear").on("click", function(){
+localStorage.clear()
+$("#history").empty()
+})
 
 // fetches coordinates from user input
 function getWeather(userinput) {
