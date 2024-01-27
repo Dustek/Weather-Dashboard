@@ -33,6 +33,7 @@ function getCurrentWeather(lat, lon) {
             return response.json();
         })
         .then(function(data) {
+            console.log(data)
             displayWeatherData(0, $("#today"), data);
         })
 }
@@ -55,21 +56,23 @@ function getFutureWeather(lat, lon) {
 
 
     function displayWeatherData(index, displayDiv, data) {
+        var clouds = data.list[0].clouds.all
+        var cloudIcon
+        if (clouds < 20) {
+            cloudIcon = "☀️";
+        } else if (clouds < 50) {
+            cloudIcon = "⛅";
+        } else {
+            cloudIcon = "☁️";
+        }
         var temperature = data.list[index].main.temp;
         var humidity = data.list[index].main.humidity;
         var wind = data.list[index].wind.speed;
         var date = data.list[index].dt * 1000;
+        var cloudsDiv =$("<p>").text(cloudIcon);
         var tempDiv = $("<p>").text("temp: " + temperature + "°C");
         var humidityDiv = $("<p>").text("humidity: " + humidity + "%");
         var windDiv = $("<p>").text("wind: " + wind + " KPH");
         var dateDiv = $("<p>").text("date: " + dayjs(date).format("DD/MM/YYYY"));
-        displayDiv.append(tempDiv, humidityDiv, windDiv, dateDiv);
+        displayDiv.append(cloudsDiv, tempDiv, humidityDiv, windDiv, dateDiv);
     }
-
-
-
-
-
-
-
-
