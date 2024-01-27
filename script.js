@@ -4,6 +4,9 @@ var lon
 $("#search-form").on("submit", function(event) {
     event.preventDefault();
     var userinput = $("#search-input").val();
+    $("#today").empty()
+    $("#forecast").empty()
+
     getWeather(userinput);
 });
 
