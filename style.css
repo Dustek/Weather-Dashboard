@@ -1,0 +1,47 @@
+.btn-primary {
+    color:aquamarine;
+
+    margin-bottom: 20px;
+}
+
+
+#forecast {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: nowrap;
+  }
+
+  #today {
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    background-color: rgba(173, 216, 230, 0.5);
+    padding: 10px;
+    display: flex;
+    align-items: center; /* Align content vertically in the center */
+    max-width: 600px; /* Set a maximum width for the box */
+    margin: 0 auto; /* Center the box horizontally */
+    flex-wrap: wrap;
+  }
+  
+  #today p {
+    margin-left: 10px; /* Adjust the left margin for text */
+    font-size: 18px; /* Adjust the font size as needed */
+    flex-grow: 1; /* Allow text to take remaining space */
+  }
+
+  .forecast-day {
+    flex: 1;
+    box-sizing: border-box;
+    text-align: center;
+    border: 1px solid #ccc;
+    background-color: rgba(173, 216, 230, 0.5);
+    padding: 10px;
+}
+
+
+
+
+  .hidden {
+    display:none;
+  }
