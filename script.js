@@ -19,6 +19,7 @@ $("#search-form").on("submit", function(event) {
     $("#history").append(newButton);    
 
     saveSearchHistory();
+    $("#search-input").val("")
 });
 
 // Saves button history to local storage
