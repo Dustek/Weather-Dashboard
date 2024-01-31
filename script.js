@@ -67,7 +67,7 @@ $("#history").empty()
 
 // fetches coordinates from user input
 function getWeather(userinput) {
-var queryURLcoordinate = "http://api.openweathermap.org/geo/1.0/direct?q="+ userinput + "&limit=5&appid=19bf45fa62f0e7c4bb3694a3eda4303a"
+var queryURLcoordinate = "https://api.openweathermap.org/geo/1.0/direct?q="+ userinput + "&limit=5&appid=19bf45fa62f0e7c4bb3694a3eda4303a"
 fetch(queryURLcoordinate)
 .then(function (response) {
   return response.json();
